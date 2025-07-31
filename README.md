@@ -36,3 +36,5 @@ Vite: is a fast build tool and dev server using native ES modules for instant st
 
 Zustand: is a minimal, hook-based state management library for React. It lets you manage global state with zero boilerplate, no context providers, and excellent performance through selective state subscriptions.
 
+The prject is DEployed on Puter itself--> 
+Check out : https://puter.com/app/ai-resume-analyzer-37
