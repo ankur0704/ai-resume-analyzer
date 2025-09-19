@@ -54,13 +54,13 @@ And many more, including code architecture and reusability.
 
 ## AI Provider
 
--The app uses Puter’s AI API (puter.ai.chat.completions)
+- The app uses Puter’s AI API (puter.ai.chat.completions)
 
--Under the hood, this leverages OpenAI GPT models (e.g., gpt-4.1-mini, gpt-4.1)
+- Under the hood, this leverages OpenAI GPT models (e.g., gpt-4.1-mini, gpt-4.1)
 
--All AI calls are serverless, handled by Puter’s backend
+- All AI calls are serverless, handled by Puter’s backend
 
--Cost:
+- Cost:
 
 ✅ Free tier includes limited credits
 
@@ -70,11 +70,11 @@ And many more, including code architecture and reusability.
 
 ## Resume Parsing
 
--Resumes are uploaded through Puter storage APIs
+- Resumes are uploaded through Puter storage APIs
 
--AI then extracts and analyzes the text directly
+- AI then extracts and analyzes the text directly
 
--Supported formats: PDF, DOCX, TXT (as allowed by Puter)
+- Supported formats: PDF, DOCX, TXT (as allowed by Puter)
 
 ⚠️ Note: Parsing accuracy may vary for complex PDFs or image-based resumes (no custom OCR implemented in this repo)
 
@@ -82,39 +82,39 @@ And many more, including code architecture and reusability.
 
 ## Data Storage & Privacy
 
--Resumes and user data are stored in Puter cloud storage
+- Resumes and user data are stored in Puter cloud storage
 
--Authentication handled by puter.auth
+- Authentication handled by puter.auth
 
--Encryption & GDPR compliance depend on Puter’s policies (not enforced in this repo)
+- Encryption & GDPR compliance depend on Puter’s policies (not enforced in this repo)
 
 ⚠️ If deploying commercially, ensure you provide a privacy disclaimer
 
 
 
 ## Info
--It calls Puter AI API, which is a wrapper around OpenAI (and possibly other providers), their puter.ai.chat.completions supports models like gpt-4.1-mini, gpt-4.1, gpt-3.5-turbo, etc.
+- It calls Puter AI API, which is a wrapper around OpenAI (and possibly other providers), their puter.ai.chat.completions supports models like gpt-4.1-mini, gpt-4.1, gpt-3.5-turbo, etc.
 
--This AI Resume Analyzer uses Puter’s hosted AI models (likely OpenAI GPT models such as gpt-4.1-mini), depending on what you specify in the puter.ai call.
+- This AI Resume Analyzer uses Puter’s hosted AI models (likely OpenAI GPT models such as gpt-4.1-mini), depending on what you specify in the puter.ai call.
 
--It uses Puter.js AI APIs, which under the hood call OpenAI GPT models (like gpt-4.1-mini or gpt-4.1). The exact model depends on what string you’ve set in the code (likely "gpt-4.1-mini" by default).
+- It uses Puter.js AI APIs, which under the hood call OpenAI GPT models (like gpt-4.1-mini or gpt-4.1). The exact model depends on what string you’ve set in the code (likely "gpt-4.1-mini" by default).
 
 
 
 ## Current Summary
--AI Provider → OpenAI GPT models via Puter.js (serverless, free tier + paid scaling).
+- AI Provider → OpenAI GPT models via Puter.js (serverless, free tier + paid scaling).
 
--Resume parsing → Done by Puter’s file/AI services; may have inconsistency with PDFs/DOCX.
+- Resume parsing → Done by Puter’s file/AI services; may have inconsistency with PDFs/DOCX.
 
--Data storage → Stored in Puter cloud; encryption/GDPR compliance depends on Puter, not your repo.
+- Data storage → Stored in Puter cloud; encryption/GDPR compliance depends on Puter, not your repo.
 
--Limitations → File size and format limits are those of Puter (likely PDFs/DOCX only, small files).
+- Limitations → File size and format limits are those of Puter (likely PDFs/DOCX only, small files).
 
--Cost → Free for small use, scales with users/tokens/storage.
+- Cost → Free for small use, scales with users/tokens/storage.
 
--Offline → Not supported, app is fully online/serverless.
+- Offline → Not supported, app is fully online/serverless.
 
--Deployability outside Puter → Possible but requires major refactoring; currently tightly bound to Puter’s ecosystem.
+- Deployability outside Puter → Possible but requires major refactoring; currently tightly bound to Puter’s ecosystem.
 
 
 
