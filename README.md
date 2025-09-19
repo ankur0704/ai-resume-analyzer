@@ -36,12 +36,69 @@ And many more, including code architecture and reusability.
 
 - Zustand: is a minimal, hook-based state management library for React. It lets you manage global state with zero boilerplate, no context providers, and excellent performance through selective state subscriptions.
 
-##
+
+
+
+## Limitations
+
+📄 File size & type limits depend on Puter’s free/paid tiers
+
+🌐 Requires internet connection (no offline mode)
+
+🔒 Vendor lock-in → currently tied to Puter APIs (AI, storage, auth)
+
+🧪 No custom backend means limited control over parsing, compliance, or error handling
+
+
+
+
+## AI Provider
+
+The app uses Puter’s AI API (puter.ai.chat.completions)
+
+Under the hood, this leverages OpenAI GPT models (e.g., gpt-4.1-mini, gpt-4.1)
+
+All AI calls are serverless, handled by Puter’s backend
+
+Cost:
+
+✅ Free tier includes limited credits
+
+💲 Paid usage depends on token count + storage
+
+
+
+## Resume Parsing
+
+Resumes are uploaded through Puter storage APIs
+
+AI then extracts and analyzes the text directly
+
+Supported formats: PDF, DOCX, TXT (as allowed by Puter)
+
+⚠️ Note: Parsing accuracy may vary for complex PDFs or image-based resumes (no custom OCR implemented in this repo)
+
+
+
+## Data Storage & Privacy
+
+Resumes and user data are stored in Puter cloud storage
+
+Authentication handled by puter.auth
+
+Encryption & GDPR compliance depend on Puter’s policies (not enforced in this repo)
+
+⚠️ If deploying commercially, ensure you provide a privacy disclaimer
+
+
+
+## Info
 It calls Puter AI API, which is a wrapper around OpenAI (and possibly other providers), their puter.ai.chat.completions supports models like gpt-4.1-mini, gpt-4.1, gpt-3.5-turbo, etc.
 
 This AI Resume Analyzer uses Puter’s hosted AI models (likely OpenAI GPT models such as gpt-4.1-mini), depending on what you specify in the puter.ai call.
 
 It uses Puter.js AI APIs, which under the hood call OpenAI GPT models (like gpt-4.1-mini or gpt-4.1). The exact model depends on what string you’ve set in the code (likely "gpt-4.1-mini" by default).
+
 
 
 ## Current Summary
@@ -59,10 +116,49 @@ Offline → Not supported, app is fully online/serverless.
 
 Deployability outside Puter → Possible but requires major refactoring; currently tightly bound to Puter’s ecosystem.
 
-## 🔹 Architecture Diagram
 
-![Architecture](./docs/ai_resume_architecture.png)
 
+
+
+## 🛠️ Future Roadmap  
+
+Planned improvements and ideas for the AI Resume Analyzer:  
+
+- [ ] **Resume Parsing Enhancements**  
+  - Add OCR (Tesseract.js) to handle scanned PDF resumes  
+  - Improve parsing consistency for `.docx`, `.pdf`, and `.txt`  
+  - Support multi-page resumes with structured extraction (Education, Work Experience, Skills)  
+
+- [ ] **AI Model Upgrades**  
+  - Allow configurable AI providers (OpenAI, Anthropic, Gemini, Llama, etc.)  
+  - Fine-tune or prompt-engineer for HR-specific evaluations  
+  - Add keyword matching with job descriptions to measure ATS-friendliness  
+
+- [ ] **Scalability & Cost Optimization**  
+  - Implement caching for repeated analyses  
+  - Batch process resumes instead of per-request API calls  
+  - Add monitoring of API usage and cost estimation dashboard  
+
+- [ ] **User Data & Security**  
+  - Encrypt resumes before storing (AES-256)  
+  - Add GDPR/CCPA compliance notice and explicit user consent  
+  - Auto-delete resumes after a configurable time (e.g., 30 days)  
+
+- [ ] **User Experience (UX) Improvements**  
+  - Show AI confidence score / highlight strong vs weak sections  
+  - Offer downloadable analysis reports in PDF/Word format  
+  - Provide actionable improvement tips (e.g., “Add measurable achievements”)  
+
+- [ ] **Deployment Flexibility**  
+  - Decouple Puter.js for storage/auth → allow Firebase, Supabase, or MongoDB  
+  - Add Docker support for backend + self-hosted deployment  
+  - Offline fallback mode for basic resume parsing (without AI)  
+
+- [ ] **Advanced Features**  
+  - Multi-resume comparison for recruiters  
+  - Job description matching (rank resumes against a JD)  
+  - Integration with LinkedIn or GitHub to auto-import experience  
+  - Gamified feedback (scorecard, improvement progress)  
 
 
 
